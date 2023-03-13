@@ -1,0 +1,56 @@
+nav ul{
+    background-color: #444444;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+nav ul li{
+    display: inline-block;
+    font-size: 24px;
+    line-height: 40px;
+    height: 40px;
+    padding: 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: aqua;
+    display: inline-block;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+main h1{
+    text-align: center;
+}
+
+#center{
+    text-align: center;
+}
+
+form{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 35px;
+}
+
+.vertical-center{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.button-clas-text{
+    font-size: 30px;
+}

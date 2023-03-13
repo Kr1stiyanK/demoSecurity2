@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/css/testcss.css"/>
+    <link rel="icon" href="/images/favicon.ico">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a th:href="@{/kur}">KUR</a>
+            </li>
+            <li>
+                <a th:href="@{/page/register}">REGISTER</a>
+            </li>
+            <li>
+                <a th:href="@{/page/login}">LOGIN</a>
+            </li>
+            <li>
+                <a th:href="@{/logout}">LOGOUT</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Hello! Lets get started.</h1>
+    <div>
+        <img src="https://www.pushengage.com/wp-content/uploads/2022/02/Best-Website-Welcome-Message-Examples.png"
+             alt="koNapraviWeIbiGandin" class="center">
+    </div>
+</main>
+</body>
+</html>

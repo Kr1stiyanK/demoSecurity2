@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/testcss.css">
+    <link rel="stylesheet" href="/images/favicon.ico">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a th:href="@{/kur}">KUR</a>
+            </li>
+            <li>
+                <a th:href="@{/page/register}">REGISTER</a>
+            </li>
+            <li>
+                <a th:href="@{/page/login}">LOGIN</a>
+            </li>
+            <li>
+                <a th:href="@{/logout}">LOGOUT</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1 id="center">
+        Please register
+    </h1>
+    <form th:action="@{/page/register}" th:method="post" class="vertical-center"
+    th:object="${userRegistrationDTO}">
+        <label for="first-name">Username</label>
+        <input type="text" id="first-name" name="username" width="80px"
+               th:field="*{username}"
+               placeholder="Kur">
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <label for="last-name">Last Name</label>-->
+<!--        <input type="text" id="last-name" name="lastName" width="80px" placeholder="Kurov">-->
+        <br>
+        <br>
+        <br>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email"
+               th:field="*{email}"width="80px" placeholder="jonhdoe@kur.kurov..">
+        <br>
+        <br>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"
+               th:field="*{password}"width="80px">
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="Register" formmethod="post" class="button-clas-text">
+    </form>
+
+</main>
+</body>
+</html>

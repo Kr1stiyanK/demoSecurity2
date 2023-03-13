@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/testcss.css">
+    <link rel="icon" href="/images/favicon.ico">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li>
+                <a th:href="@{/kur}">KUR</a>
+            </li>
+            <li>
+                <a th:href="@{/page/register}">REGISTER</a>
+            </li>
+            <li>
+                <a th:href="@{/page/login}">LOGIN</a>
+            </li>
+            <li>
+                <a th:href="@{/logout}">LOGOUT</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1 id="center">
+        Please login
+    </h1>
+    <form th:action="@{/page/login}" th:method="post" class="vertical-center">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" width="80px">
+        <br>
+        <br>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="name-password" width="80px">
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="Login" class="button-clas-text">
+    </form>
+
+</main>
+</body>
+</html>
