@@ -28,7 +28,7 @@ public class DemoSecurity2Configuration {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+        return new Pbkdf2PasswordEncoder();
     }
 
     @Bean
@@ -40,22 +40,17 @@ public class DemoSecurity2Configuration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .antMatchers("/css/**").permitAll()
-                .antMatchers("/error").permitAll()
-                .antMatchers("/action/**").hasRole("USER")
-                .antMatchers("/action_template/**").hasRole("ADMIN")
                 .antMatchers("/","/page/login","/page/register").permitAll()
         .and()
                 .formLogin()
                 .loginPage("/page/login")
                 .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
                 .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
-                //.defaultSuccessUrl("/",true)
+//                .defaultSuccessUrl("/",true)
                 .successForwardUrl("/")
                 .failureForwardUrl("/page/login-error")
                 .and()
-                .csrf()
-                .and()
+                .csrf().and()
                 .logout()
                 .logoutUrl("/logout")
                 .invalidateHttpSession(true)

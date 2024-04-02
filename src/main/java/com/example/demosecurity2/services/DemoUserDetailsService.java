@@ -1,5 +1,6 @@
 package com.example.demosecurity2.services;
 
+import com.example.demosecurity2.models.entities.SecurityUser;
 import com.example.demosecurity2.models.entities.UserEntity;
 import com.example.demosecurity2.models.entities.UserRoleEntity;
 import com.example.demosecurity2.repositories.UserRepository;
@@ -9,10 +10,12 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class DemoUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -23,11 +26,16 @@ public class DemoUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return this.userRepository.findUserEntityByUsername(username).map(this::map).orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " not found!"));
+        return this.userRepository.findUserEntityByUsername(username)
+                .map(this::map)
+                .orElseThrow(() -> new UsernameNotFoundException("User with name " + username + " not found!"));
     }
 
     private UserDetails map(UserEntity userEntity){
-        return new User(userEntity.getUsername(),userEntity.getPassword(),extractAuthorities(userEntity));
+        return new SecurityUser(userEntity.getUsername(),
+                userEntity.getEmail(),
+                userEntity.getPassword(),
+                extractAuthorities(userEntity));
     }
 
 

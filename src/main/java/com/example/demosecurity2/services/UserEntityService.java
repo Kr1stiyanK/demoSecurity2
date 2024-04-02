@@ -13,9 +13,9 @@ import java.util.List;
 public class UserEntityService {
     private final PasswordEncoder passwordEncoder;
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    private UserRoleRepository userRoleRepository;
+    private final UserRoleRepository userRoleRepository;
 
     public UserEntityService(PasswordEncoder passwordEncoder, UserRepository userRepository, UserRoleRepository userRoleRepository) {
         this.passwordEncoder = passwordEncoder;
@@ -30,7 +30,7 @@ public class UserEntityService {
                 userToSave.setUsername(userRegistrationDTO.getUsername());
                 userToSave.setEmail(userRegistrationDTO.getEmail());
                 userToSave.setPassword(passwordEncoder.encode(userRegistrationDTO.getPassword()));
-//                        .setUserRoles(List.of(adminEntity,moderatorEntity,userEntity));
+
         this.userRepository.save(userToSave);
     }
 }

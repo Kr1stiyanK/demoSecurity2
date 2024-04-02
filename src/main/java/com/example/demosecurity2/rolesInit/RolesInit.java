@@ -43,9 +43,9 @@ public class RolesInit implements CommandLineRunner {
     private void initUser(List<UserRoleEntity> roles){
         UserEntity user = new UserEntity();
                 user.setUserRoles(roles);
-                user.setUsername("Userov");
+                user.setUsername("userov");
                 user.setEmail("user@example.com");
-                user.setPassword(passwordEncoder.encode("topsecret"));
+                user.setPassword(passwordEncoder.encode("12345"));
 
         this.userRepository.save(user);
     }

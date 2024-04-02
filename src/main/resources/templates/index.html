@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
@@ -13,13 +13,13 @@
             <li>
                 <a th:href="@{/kur}">KUR</a>
             </li>
-            <li>
+            <li sec:authorize="!isAuthenticated()">
                 <a th:href="@{/page/register}">REGISTER</a>
             </li>
-            <li>
+            <li sec:authorize="!isAuthenticated()">
                 <a th:href="@{/page/login}">LOGIN</a>
             </li>
-            <li>
+            <li sec:authorize="isAuthenticated()">
                 <a th:href="@{/logout}">LOGOUT</a>
             </li>
         </ul>
